@@ -1,9 +1,15 @@
 import {loginWithToken} from './login';
-import {loginForm} from './loginForm';
+import {loginForm} from './componentLib/loginForm';
+import {registerForm} from './componentLib/registerForm';
+import {mount} from './utilityLib/mount';
+import {mainPage} from './componentLib/mainPage';
+
+
+const regForm = registerForm();
+mount(regForm);
 
 if (!loginWithToken()) {
-    const formElement = loginForm()
-    document.body.append(formElement);
+    mount(loginForm());
 } else {
-    document.body.append(mainPage())
+    mount(mainPage())
 }

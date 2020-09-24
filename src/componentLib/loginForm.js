@@ -1,5 +1,7 @@
-import {formMaker} from './formMaker';
+import {formMaker} from '../utilityLib/formMaker';
 import {mainPage} from './mainPage';
+import {mount} from '../utilityLib/mount';
+import {user} from '../login';
 
 export function loginForm() {
     return formMaker(inputArr, buttArr, fn);
@@ -30,8 +32,8 @@ function fn(e) {
         .then(token => {
             if (token) {
                 localStorage.setItem('token', token);
-                e.target.remove();
-                document.body.append(mainPage())
+                user.token = 'Bearer' + token;
+                mount(mainPage())
             }
         }
         )

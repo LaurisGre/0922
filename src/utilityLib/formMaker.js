@@ -3,7 +3,6 @@ import {nodeMaker} from './nodeMaker';
 export function formMaker(inputArr, buttArr, fun) {
     const $form = document.createElement('form');
     $form.classList.add('box');
-    $form.innerHTML = 'Please login';
 
     inputArr.forEach((input) => {
         const inputElement = nodeMaker('input', input);
