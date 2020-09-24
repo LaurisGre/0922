@@ -1,8 +1,47 @@
 import {formMaker} from './formMaker';
+import {mainPage} from './mainPage';
 
 export function loginForm() {
-    return formMaker(inputArr, buttArr);
+    return formMaker(inputArr, buttArr, fn);
 };
+
+function fn(e) {
+    e.preventDefault();
+
+    const credentials = {};
+
+    inputArr.forEach((val) => {
+        credentials[val.name] = val.value
+    });
+
+    fetch('http://rest.stecenka.lt/login', {
+        headers: {
+          'Content-type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(credentials)
+        }
+    )
+        .then(response => {
+            if (response.ok){
+                return response.json();
+            }
+        })
+        .then(token => {
+            if (token) {
+                localStorage.setItem('token', token);
+                e.target.remove();
+                document.body.append(mainPage())
+            }
+        }
+        )
+};
+
+// const credentials = {
+//     name: 'Bilas',
+//     email: 'Bilas@bilas.eu',
+//     password: 'bilobilas'
+// };
 
 const inputArr = [
     {
