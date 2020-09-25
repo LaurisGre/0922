@@ -5,8 +5,12 @@ export function nodeMaker(nodeName, attArr = {}, ...children) {
     };
 
     children.forEach(child => {
-        const textNode = document.createTextNode(child);
-        node.append(textNode);
+        if (typeof child === 'string') {
+            const textNode = document.createTextNode(child);
+            node.append(textNode);
+        } else {
+            node.append(child);
+        }
     });
 
     return node;

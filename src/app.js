@@ -12,4 +12,4 @@ if (!loginWithToken()) {
     mount(loginForm());
 } else {
     mount(mainPage())
-}
+};
