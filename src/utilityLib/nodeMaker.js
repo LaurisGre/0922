@@ -1,17 +1,22 @@
-export function nodeMaker(nodeName, attArr = {}, ...children) {
-    const node = document.createElement(nodeName);
-    for (const key in attArr) {
-        node.setAttribute(key, attArr[key])
+/**
+ * @param {object with DOMParameters} vNode 
+ */
+
+export function nodeMaker(vNode) {
+    const element = document.createElement(vNode.nodeName);
+
+    for (const key in vNode.attributes) {
+        element.setAttribute(key, vNode.attributes[key]);
     };
 
-    children.forEach(child => {
+    vNode.children.forEach(child => {
         if (typeof child === 'string') {
             const textNode = document.createTextNode(child);
-            node.append(textNode);
+            element.append(textNode);
         } else {
-            node.append(child);
+            element.append(nodeMaker(child));
         }
     });
 
-    return node;
+    return element;
 };

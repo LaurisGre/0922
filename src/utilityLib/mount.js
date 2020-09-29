@@ -1,6 +1,15 @@
-const bucket = document.querySelector('#bucket');
+// const bucket = document.querySelector('#bucket');
 
-export function mount(element) {
-    bucket.innerHTML = '';
-    bucket.append(element)
-}
+import {nodeMaker} from '../utilityLib/nodeMaker';
+
+/**
+ * @param {parameters for DOMElement creation} vNode 
+ * @param {parent element, mounting on it} parent 
+ */
+
+export function mount(vNode, parent) {
+    parent.innerHTML = '';
+
+    const node = nodeMaker(vNode);
+    parent.append(node);
+};
