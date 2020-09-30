@@ -1,24 +1,22 @@
-import {nodeMaker} from './nodeMaker';
+import {hyperScript} from './hyperScript';
 
 export function formMaker(inputArr, buttArr, fun) {
-    const $form = document.createElement('form');
-    $form.classList.add('box');
 
-    inputArr.forEach((input) => {
-        const inputElement = nodeMaker('input', input);
-
-        inputElement.addEventListener('keyup', () => {
-            input.value = inputElement.value;
-        })
-        $form.append(inputElement);
+    const inputs = inputArr.map((input) => {
+        return hyperScript('input', input);
     });
 
-    buttArr.forEach((buttonAttributes) => {
-        const buttonElement  = nodeMaker('button', buttonAttributes, buttonAttributes.title);
-        $form.append(buttonElement);
+    const buttons = buttArr.map((button) => {
+        return hyperScript('button', button, button.title);
     });
 
-    $form.addEventListener('submit', fun);
-
-    return $form;
+    return hyperScript(
+        'form',
+        {
+            class: 'box',
+            method: 'POST',
+            submit: fun,
+        },
+        ...inputs,
+        ...buttons);
 };

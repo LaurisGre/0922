@@ -21,8 +21,7 @@ function fn(e) {
         },
         method: 'POST',
         body: JSON.stringify(credentials)
-        }
-    )
+        })
         .then(response => {
             if (response.ok){
                 return response.json();
@@ -33,8 +32,7 @@ function fn(e) {
                 e.target.remove();
                 mount(loginForm())
             }
-        }
-        )
+        })
 };
 
 const inputArr = [
@@ -59,6 +57,6 @@ const buttArr = [
     {
         name: 'submit',
         type: 'submit',
-        title: 'register'
+        title: 'register',
     }
 ];
