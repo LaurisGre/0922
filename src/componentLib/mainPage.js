@@ -1,15 +1,15 @@
-import {nodeMaker} from '../utilityLib/nodeMaker';
-import {user} from '../login';
+import {user} from '../utilityLib/loginWithToken';
 import {cardMaker} from '../utilityLib/cardMaker';
 import {mount} from '../utilityLib/mount';
 import {postMaker} from '../utilityLib/postMaker';
+import {bucket} from '../app';
 
 export function mainPage() {
-    const navBar = nodeMaker('nav');
+    const navBar = document.createElement('nav');
     document.body.append(navBar);
-    const postButt = nodeMaker('button');
+    const postButt = document.createElement('button');
     postButt.addEventListener('click', () => {
-        mount(postMaker())
+        mount(postMaker(), bucket)
     })
     navBar.append(postButt);
 
@@ -21,5 +21,7 @@ export function mainPage() {
     }
     )
         .then (response => response.json())
-        .then (sveikinimai => mount(cardMaker(sveikinimai)))
+        .then (sveikinimai => bucket.append(cardMaker(sveikinimai)))
 };
+
+// .then (sveikinimai => mount(cardMaker(sveikinimai), bucket))

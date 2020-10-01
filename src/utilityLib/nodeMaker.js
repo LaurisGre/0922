@@ -1,5 +1,5 @@
 /**
- * @param {object with DOMParameters} vNode 
+ * @param {object with DOMParameters, three params: name, attributes, children} vNode 
  */
 
 export function nodeMaker(vNode) {

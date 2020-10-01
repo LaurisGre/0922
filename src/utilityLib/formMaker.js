@@ -1,12 +1,19 @@
 import {hyperScript} from './hyperScript';
 
-export function formMaker(inputArr, buttArr, fun) {
+export function formMaker(inputs = [], buttons = [], fun) {
 
-    const inputs = inputArr.map((input) => {
-        return hyperScript('input', input);
-    });
+    const inputNodes = inputs.map(inputAttributes => {
+        inputAttributes.change = (e) => {
+            inputAttributes.value = e.target.value;
+        }
+        return hyperScript('input', inputAttributes);
+    })
 
-    const buttons = buttArr.map((button) => {
+    // const inputs = inputArr.map((input) => {
+    //     return hyperScript('input', input);
+    // });
+
+    const buttonNodes = buttons.map((button) => {
         return hyperScript('button', button, button.title);
     });
 
@@ -17,6 +24,6 @@ export function formMaker(inputArr, buttArr, fun) {
             method: 'POST',
             submit: fun,
         },
-        ...inputs,
-        ...buttons);
+        ...inputNodes,
+        ...buttonNodes);
 };

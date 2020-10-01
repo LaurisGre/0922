@@ -1,7 +1,7 @@
 import {formMaker} from '../utilityLib/formMaker';
 import {mainPage} from './mainPage';
 import {mount} from '../utilityLib/mount';
-import {user} from '../login';
+import {user} from '../utilityLib/loginWithToken';
 
 export function loginForm() {
     return formMaker(inputArr, buttArr, fn);

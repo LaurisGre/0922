@@ -1,6 +1,6 @@
 import {formMaker} from '../utilityLib/formMaker';
 import {nodeMaker} from './nodeMaker';
-import {user} from '../login';
+import {user} from './loginWithToken';
 
 export function postMaker() {
     return formMaker(inputArr, buttArr, fn);

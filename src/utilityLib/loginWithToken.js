@@ -12,7 +12,3 @@ export function loginWithToken() {
 export const user = {
     token: ''
 }
-
-// export function login() {
-
-// };
