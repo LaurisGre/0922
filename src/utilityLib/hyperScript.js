@@ -1,6 +1,6 @@
-export function hyperScript(nodeName, attributes = {}, ...children) {
+export function hyperScript(nodeNameOrComponent, attributes = {}, ...children) {
     return {
-        nodeName,
+        nodeNameOrComponent,
         attributes,
         children
     };

@@ -5,13 +5,15 @@ import {mount} from './utilityLib/mount';
 import {mainPage} from './componentLib/mainPage';
 import {hyperScript} from './utilityLib/hyperScript';
 import Main from './Main';
+import { createNode } from './utilityLib/createNode';
 
 export const bucket = document.querySelector('#bucket');
 
-const mainOnbj = new Main;
-mainOnbj.render();
-console.log(mainOnbj.render());
+mount(hyperScript(Main), bucket)
 
+
+// mainOnbj.render();
+// console.log(mainOnbj.render());
 
 // mount(registerForm(), bucket)
 // // console.log(registerForm());

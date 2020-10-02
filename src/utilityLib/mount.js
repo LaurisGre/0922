@@ -1,6 +1,6 @@
 // const bucket = document.querySelector('#bucket');
 
-import {nodeMaker} from '../utilityLib/nodeMaker';
+import {createNode} from './createNode';
 
 /**
  * @param {parameters for DOMElement creation} vNode 
@@ -9,7 +9,6 @@ import {nodeMaker} from '../utilityLib/nodeMaker';
 
 export function mount(vNode, parent) {
     parent.innerHTML = '';
-
-    const node = nodeMaker(vNode);
+    const node = createNode(vNode);
     parent.append(node);
 };
