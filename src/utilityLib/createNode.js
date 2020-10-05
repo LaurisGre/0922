@@ -22,7 +22,7 @@ export function createNode({nodeNameOrComponent, attributes, children}) {
             const textNode = document.createTextNode(child);
             element.append(textNode);
         } else {
-            element.append(nodeMaker(child));
+            element.append(createNode(child));
         };
     });
 

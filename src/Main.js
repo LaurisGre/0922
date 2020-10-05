@@ -1,3 +1,4 @@
+import Navigation from "./componentLib/navigation";
 import { hyperScript } from "./utilityLib/hyperScript";
 import { loginWithToken } from "./utilityLib/loginWithToken";
 
@@ -10,10 +11,9 @@ export default class Main {
     };
     render() {
         if (this.isLoggedIn) {
-            return hyperScript('div');
+            return hyperScript('div', {}, hyperScript(Navigation));
         } else {
             return hyperScript('form');
         };
     };
 };
-
