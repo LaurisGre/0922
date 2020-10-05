@@ -1,3 +1,4 @@
+import './main.scss';
 import {loginWithToken} from './utilityLib/loginWithToken';
 import {loginForm} from './componentLib/loginForm';
 import {registerForm} from './componentLib/registerForm';
