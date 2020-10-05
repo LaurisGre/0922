@@ -1,4 +1,4 @@
-import {hyperScript} from './hyperScript';
+import hyperScript from './hyperScript';
 
 export function formMaker(inputs = [], buttons = [], fun) {
 

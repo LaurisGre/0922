@@ -1,5 +1,5 @@
 import Navigation from "./componentLib/navigation";
-import { hyperScript } from "./utilityLib/hyperScript";
+import hyperScript from "./utilityLib/hyperScript";
 import { loginWithToken } from "./utilityLib/loginWithToken";
 
 export default class Main {

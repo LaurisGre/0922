@@ -4,7 +4,7 @@ import {loginForm} from './componentLib/loginForm';
 import {registerForm} from './componentLib/registerForm';
 import {mount} from './utilityLib/mount';
 import {mainPage} from './componentLib/mainPage';
-import {hyperScript} from './utilityLib/hyperScript';
+import hyperScript from './utilityLib/hyperScript';
 import Main from './Main';
 import {createNode} from './utilityLib/createNode';
 import Navigation from './componentLib/navigation';

@@ -1,4 +1,4 @@
-export function hyperScript(nodeNameOrComponent, attributes = {}, ...children) {
+export default function hyperScript(nodeNameOrComponent, attributes = {}, ...children) {
     return {
         nodeNameOrComponent,
         attributes,

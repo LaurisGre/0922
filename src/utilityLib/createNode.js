@@ -11,7 +11,7 @@ export function createNode({nodeNameOrComponent, attributes, children}) {
 
     for (const key in attributes) {
         if (typeof attributes[key] === 'function'){
-            element.addEventListener('key', attributes[key]);
+            element.addEventListener(key, attributes[key]);
         } else {
             element.setAttribute(key, attributes[key]);
         };
@@ -30,7 +30,11 @@ export function createNode({nodeNameOrComponent, attributes, children}) {
 };
 
 function renderComponent(classComponent, attributes){
-    // const a = new classComponent(attributes)
-    // return createNode(a.render())
-    return createNode(new classComponent(attributes).render())
+    const component = new classComponent(attributes);
+    const virtualNode = component.render();
+    component.element = createNode(virtualNode);
+    // console.log(component);
+    return component.element;
+
+    // return createNode(new classComponent(attributes).render())
 };

@@ -1,4 +1,4 @@
-import { hyperScript } from './hyperScript';
+import hyperScript from './hyperScript';
 import {createNode} from './createNode';
 
 export function cardMaker(data) {
